@@ -7,6 +7,12 @@
         //Inicializa as máscaras
         Vehicle_Enrollment.InitializeMasks();
 
+        //Inicializa lógica dos botões
+        Vehicle_Enrollment.InitializeButtons();
+                
+
+    }, InitializeButtons: function () {
+
         $('.button').click(function () {
 
             debugger;
@@ -28,7 +34,6 @@
             Vehicle_Enrollment.ExecuteAjax(Vehicle, "enrollment", "enrollvehicle");
 
         });
-
     },
     BuildEnrollmentForm: function () {
 
@@ -214,7 +219,13 @@
                 title: data,
                 icon: 'info',
                 confirmButtonText: 'Ok'
-            })
+            }).then(function () {
+
+                debugger;
+                $("#search-bar").val('');
+                $("#model").val('');
+                $("#plate").val('');
+            });
 
         }).done(function (data) {
 
@@ -227,7 +238,13 @@
                 imageWidth: 400,
                 imageHeight: 200,
                 imageAlt: 'Custom image',
-            })
+            }).then(function () {
+
+                debugger;
+                $("#search-bar").val('');
+                $("#model").val('');
+                $("#plate").val('');
+            });
 
             debugger;
 

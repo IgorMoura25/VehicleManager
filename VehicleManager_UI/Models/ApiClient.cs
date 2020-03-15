@@ -31,6 +31,19 @@ namespace VehicleManager_UI.Models
                 return assemblerList;
             }
 
+            internal static async Task<List<Vehicle>> GetAllVehicles()
+            {
+                var uri = extension.UriExtensions.Combine(_apiAbsoluteUri, _apiRelativeUri, "all/vehicles");
+
+                var httpResponse = await _client.GetAsync(uri);
+
+                var result = httpResponse.Content.ReadAsStringAsync().Result;
+
+                var vehicleList = JsonConvert.DeserializeObject<List<Vehicle>>(result);
+
+                return vehicleList;
+            }
+
             internal static async Task<Vehicle> PostVehicle(Vehicle vehicle)
             {
                 var uri = extension.UriExtensions.Combine(_apiAbsoluteUri, _apiRelativeUri, "insert/vehicle");
@@ -44,6 +57,35 @@ namespace VehicleManager_UI.Models
 
                 return vehicleInserted;
             }
+
+            internal static async Task<Vehicle> PutVehicle(Vehicle vehicle)
+            {
+                var uri = extension.UriExtensions.Combine(_apiAbsoluteUri, _apiRelativeUri, "update/vehicle");
+                var content = new StringContent(JsonConvert.SerializeObject(vehicle), Encoding.UTF8, "application/json");
+
+                var httpResponse = await _client.PutAsync(uri, content);
+
+                var result = httpResponse.Content.ReadAsStringAsync().Result;
+
+                var vehicleUpdated = JsonConvert.DeserializeObject<Vehicle>(result);
+
+                return vehicleUpdated;
+            }
+
+            internal static async Task<bool> DeleteVehicle(Vehicle vehicle)
+            {
+                var uri = extension.UriExtensions.Combine(_apiAbsoluteUri, _apiRelativeUri, "delete/vehicle");
+                var content = new StringContent(JsonConvert.SerializeObject(vehicle), Encoding.UTF8, "application/json");
+
+                var httpResponse = await _client.PostAsync(uri, content);
+
+                var result = httpResponse.Content.ReadAsStringAsync().Result;
+
+                var vehicleUpdated = JsonConvert.DeserializeObject<bool>(result);
+
+                return vehicleUpdated;
+            }
+
         }
     }
 }

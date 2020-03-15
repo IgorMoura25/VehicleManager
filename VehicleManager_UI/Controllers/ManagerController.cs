@@ -9,54 +9,44 @@ namespace VehicleManager_UI.Controllers
     {
         public IActionResult ManageVehicles()
         {
-            var assemblers = ApiClient.VehiclesClient.GetAllVehicleAssemblers().Result;
+            var vehicles = ApiClient.VehiclesClient.GetAllVehicles().Result;
 
-            ViewBag.VehicleAssemblers = JsonConvert.SerializeObject(assemblers);
-
-            return View();
+            return View(vehicles);
         }
 
         [HttpPost]
-        public IActionResult EnrollVehicle([FromBody]Vehicle vehicle)
+        public IActionResult UpdateVehicle([FromBody]Vehicle vehicle)
         {
-            var vehicleInserted = ApiClient.VehiclesClient.PostVehicle(vehicle).Result;
+            var vehicleInserted = ApiClient.VehiclesClient.PutVehicle(vehicle).Result;
 
             if (vehicleInserted.Id > 0)
             {
                 Response.StatusCode = (int)HttpStatusCode.OK;
-                return Json("Veículo cadastrado com sucesso!");
+                return Json("Veículo atualizado com sucesso!");
             }
             else
             {
                 Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                return Json("Não foi possível cadastrar o veículo. Tente novamente mais tarde.");
+                return Json("Não foi possível atualizar o veículo. Tente novamente mais tarde.");
             }
         }
 
-        //public IActionResult About()
-        //{
-        //    ViewData["Message"] = "Your application description page.";
+        [HttpPost]
+        public IActionResult DeleteVehicle([FromBody]Vehicle vehicle)
+        {
+            var vehicleDeleted = ApiClient.VehiclesClient.DeleteVehicle(vehicle).Result;
 
-        //    return View();
-        //}
-
-        //public IActionResult Contact()
-        //{
-        //    ViewData["Message"] = "Your contact page.";
-
-        //    return View();
-        //}
-
-        //public IActionResult Privacy()
-        //{
-        //    return View();
-        //}
-
-        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        //public IActionResult Error()
-        //{
-        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        //}
+            if (vehicleDeleted)
+            {
+                Response.StatusCode = (int)HttpStatusCode.OK;
+                return View();
+            }
+            else
+            {
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Json("Não foi possível descadastrar o veículo. Tente novamente mais tarde.");
+            }
+        }
 
     }
 }

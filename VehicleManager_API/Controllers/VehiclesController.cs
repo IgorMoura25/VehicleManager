@@ -12,11 +12,13 @@ namespace VehicleManager_API.Controllers
     [ApiController]
     public class VehiclesController : ControllerBase
     {
-        // GET api/vehicles
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+
+        [HttpGet("all/vehicles")]
+        public ActionResult<List<Vehicle>> GetAll()
         {
-            return new string[] { "value1", "value2" };
+            var listVehicles = new ManagerVehicles().GetAllVehicles();
+
+            return listVehicles;
         }
 
         [HttpGet("all/vehicleassemblers")]
@@ -27,7 +29,6 @@ namespace VehicleManager_API.Controllers
             return assemblers;
         }
 
-        // GET api/values/5
         [HttpPost("insert/vehicle")]
         public ActionResult<Vehicle> InsertVehicle([FromBody]Vehicle vehicle)
         {
@@ -36,22 +37,20 @@ namespace VehicleManager_API.Controllers
             return vehicleInserted;
         }
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpPut("update/vehicle")]
+        public ActionResult<Vehicle> Put([FromBody]Vehicle vehicle)
         {
+            var vehicleUpdated = new ManagerVehicles().UpdateVehicle(vehicle);
+
+            return vehicleUpdated;
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPost("delete/vehicle")]
+        public ActionResult<bool> Delete([FromBody]Vehicle vehicle)
         {
-        }
+            var vehicleDeleted = new ManagerVehicles().DeleteVehicle(vehicle);
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return vehicleDeleted;
         }
     }
 }

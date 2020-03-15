@@ -1,45 +1,82 @@
 ﻿@{
-    ViewData["Title"] = "Cadastro";
+    ViewData["Title"] = "Gerenciamento";
+    @model List<Vehicle>;
 }
 
-<div class="login-wrap">
-    <div class="login-html">
-        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">DADOS CADASTRAIS</label>
-        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
-        @*<form asp-controller="" asp-action="" method="post"></form>*@
-        <div class="login-form">
-            <div class="sign-in-htm">
-                <div class="group">
-                    <label for="search-bar" class="label">Montadora</label>
-                    <input type="text" name="assembler" id="search-bar" autocomplete="off" />
-                    <ul class="output" style="display:none;"></ul>
-                </div>
-                <div class="group">
-                    <label for="model" class="label">Modelo</label>
-                    <input id="model" name="model" type="text" class="input">
-                </div>
-                <div class="group">
-                    <label for="plate" class="label">Placa</label>
-                    <input id="plate" name="plate" type="text" class="input">
-                </div>
-                <div class="group">
-                    <input type="submit" class="button" value="Cadastrar">
-                </div>
-                <div class="hr"></div>
+<h1>Lista de Veículos</h1>
+<table id="example" class="table table-striped table-bordered display" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>Placa</th>
+            <th>Montadora</th>
+            <th>Modelo</th>
+            <th>Age</th>
+            <th>Modelo</th>
+            <th>Id</th>
+            <th>Editar</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>Placa</th>
+            <th>Montadora</th>
+            <th>Office</th>
+            <th>Age</th>
+            <th>Modelo</th>
+            <th>Id</th>
+            <th>Editar</th>
+        </tr>
+    </tfoot>
+    <tbody>
+
+        @foreach (var vehicle in Model)
+        {
+            <tr>
+                <td>@vehicle.Plate</td>
+                <td>@vehicle.AssemblerName</td>
+                <td></td>
+                <td></td>
+                <td>@vehicle.Model</td>
+                <td>@vehicle.Id</td>
+                <td></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Editar Veículo</h4>
+            </div>
+            <div class="modal-body">
+                <div class="insertHere"></div>
+            </div>
+            <div class="modal-footer">
+                <button id="delete-item" type="button" class="btn btn-danger pull-left" style="background-color:red">Deletar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
+                <button id="save-changes" type="button" class="btn btn-primary">Salvar</button>
             </div>
         </div>
     </div>
 </div>
 
+
 @section Scripts {
 
-    <script>
-        var assemblers = @Html.Raw(ViewBag.VehicleAssemblers);
-    </script>
+    <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/datatables.min.css" />
 
-    <link href="@Url.Content("~/css/form-pretty.css")" rel="stylesheet" type="text/css" />
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/sweet-alert/dist/sweet-alert.js"></script>
+    <script type="text/javascript" src="~/lib/data-tables/dist/datatables.min.js"></script>
     <script src="~/lib/input-mask/dist/jquery.mask.min.js"></script>
-    @*<script src="~/lib/sweet-alert/dist/sweet-alert.js"></script>*@
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="~/js/vehicle-enrollment.js"></script>
+    <script src="~/js/manage-vehicles.js"></script>
+
 }
