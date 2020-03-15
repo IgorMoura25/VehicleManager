@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Cadastro";
+}
+
+<div class="login-wrap">
+    <div class="login-html">
+        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">DADOS CADASTRAIS</label>
+        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
+        <div class="login-form">
+            <div class="sign-in-htm">
+                <div class="group">
+                    <label for="search-bar" class="label">Montadora</label>
+                    <input type="text" id="search-bar" autocomplete="off" />
+                    <ul class="output" style="display:none;"></ul>
+                </div>
+                <div class="group">
+                    <label for="model" class="label">Modelo</label>
+                    <input id="model" type="text" class="input">
+                </div>
+                <div class="group">
+                    <label for="plate" class="label">Placa</label>
+                    <input id="plate" type="text" class="input">
+                </div>
+                <div class="group">
+                    <input type="submit" class="button" value="Cadastrar">
+                </div>
+                <div class="hr"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <link href="@Url.Content("~/css/form-pretty.css")" rel="stylesheet" type="text/css" />
+    <script src="~/lib/input-mask/dist/jquery.mask.min.js"></script>
+    <script src="~/js/vehicle-enrollment.js"></script>
+}
