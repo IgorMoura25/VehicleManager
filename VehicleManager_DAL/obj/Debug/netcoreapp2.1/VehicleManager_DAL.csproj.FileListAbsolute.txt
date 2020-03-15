@@ -14,3 +14,4 @@ C:\Projetos\VehicleManager\VehicleManager_DAL\obj\Debug\netcoreapp2.1\VehicleMan
 C:\Projetos\VehicleManager\VehicleManager_DAL\obj\Debug\netcoreapp2.1\VehicleManager_DAL.AssemblyInfo.cs
 C:\Projetos\VehicleManager\VehicleManager_DAL\obj\Debug\netcoreapp2.1\VehicleManager_DAL.dll
 C:\Projetos\VehicleManager\VehicleManager_DAL\obj\Debug\netcoreapp2.1\VehicleManager_DAL.pdb
+C:\Projetos\VehicleManager\VehicleManager_DAL\obj\Debug\netcoreapp2.1\VehicleManager_DAL.csprojAssemblyReference.cache

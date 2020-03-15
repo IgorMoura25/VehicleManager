@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Net;
-using System.Net.Mime;
-using System.Threading.Tasks;
+﻿using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using VehicleManager_UI.Models;
 
 namespace VehicleManager_UI.Controllers
 {
-    public class EnrollmentController : Controller
+    public class ManagerController : Controller
     {
-        public IActionResult VehicleEnrollment()
+        public IActionResult ManageVehicles()
         {
             var assemblers = ApiClient.VehiclesClient.GetAllVehicleAssemblers().Result;
 

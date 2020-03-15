@@ -72,7 +72,6 @@ C:\Projetos\VehicleManager\VehicleManager_UI\obj\Debug\netcoreapp2.1\VehicleMana
 C:\Projetos\VehicleManager\VehicleManager_UI\obj\Debug\netcoreapp2.1\VehicleManager_UI.TagHelpers.input.cache
 C:\Projetos\VehicleManager\VehicleManager_UI\obj\Debug\netcoreapp2.1\VehicleManager_UI.TagHelpers.output.cache
 C:\Projetos\VehicleManager\VehicleManager_UI\obj\Debug\netcoreapp2.1\VehicleManager_UI.RazorCoreGenerate.cache
-C:\Projetos\VehicleManager\VehicleManager_UI\obj\Debug\netcoreapp2.1\Razor\Views\Enrollment\About.g.cshtml.cs
 C:\Projetos\VehicleManager\VehicleManager_UI\obj\Debug\netcoreapp2.1\Razor\Views\Enrollment\VehicleEnrollment.g.cshtml.cs
 C:\Projetos\VehicleManager\VehicleManager_UI\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
 C:\Projetos\VehicleManager\VehicleManager_UI\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
@@ -85,3 +84,4 @@ C:\Projetos\VehicleManager\VehicleManager_UI\obj\Debug\netcoreapp2.1\VehicleMana
 C:\Projetos\VehicleManager\VehicleManager_UI\obj\Debug\netcoreapp2.1\VehicleManager_UI.dll
 C:\Projetos\VehicleManager\VehicleManager_UI\obj\Debug\netcoreapp2.1\VehicleManager_UI.pdb
 C:\Projetos\VehicleManager\VehicleManager_UI\obj\Debug\netcoreapp2.1\VehicleManager_UI.csproj.CopyComplete
+C:\Projetos\VehicleManager\VehicleManager_UI\obj\Debug\netcoreapp2.1\Razor\Views\Manager\ManageVehicles.g.cshtml.cs

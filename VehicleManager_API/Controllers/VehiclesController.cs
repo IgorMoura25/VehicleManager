@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using VehicleManager_BLL;
+using VehicleManager_DAL.Models;
 
 namespace VehicleManager_API.Controllers
 {
@@ -10,18 +12,28 @@ namespace VehicleManager_API.Controllers
     [ApiController]
     public class VehiclesController : ControllerBase
     {
-        // GET api/values
+        // GET api/vehicles
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        [HttpGet("all/vehicleassemblers")]
+        public ActionResult<List<VehicleAssembler>> GetAllVehicleAssemblers()
         {
-            return "value";
+            var assemblers = new VehicleEnrollment().GetAllAssemblers();
+
+            return assemblers;
+        }
+
+        // GET api/values/5
+        [HttpPost("insert/vehicle")]
+        public ActionResult<Vehicle> InsertVehicle([FromBody]Vehicle vehicle)
+        {
+            var vehicleInserted = new VehicleEnrollment().InsertVehicle(vehicle);
+
+            return vehicleInserted;
         }
 
         // POST api/values

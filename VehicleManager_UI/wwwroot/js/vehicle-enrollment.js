@@ -1,21 +1,48 @@
 ﻿Vehicle_Enrollment = {
     InitializeComponent: function () {
 
-        debugger;
-
-        //Constrói o gráfico de cadastro
+        //Constrói o formulário
         Vehicle_Enrollment.BuildEnrollmentForm();
 
         //Inicializa as máscaras
         Vehicle_Enrollment.InitializeMasks();
 
+        $('.button').click(function () {
+
+            debugger;
+
+            //Valida inputs
+            if (Vehicle_Enrollment.ValidateInputs()) {
+                return;
+            }
+
+            var assembler = $("#search-bar").val();
+            var model = $("#model").val();
+            var plate = $("#plate").val();
+
+            var Vehicle = new Object();
+            Vehicle.AssemblerName = assembler;
+            Vehicle.Model = model;
+            Vehicle.Plate = plate;
+
+            Vehicle_Enrollment.ExecuteAjax(Vehicle, "enrollment", "enrollvehicle");
+
+        });
+
     },
     BuildEnrollmentForm: function () {
 
-        var $terms = [
-            'chevrolet',
-            'fiat'
-        ].sort(),
+        debugger;
+
+        //Define todos os inputs somente como maiúsculos
+        Vehicle_Enrollment.SetInputsUpperCase();
+
+        var terms = new Array();
+        $.each(assemblers, function (key, value) {
+            terms.push(value.Name);
+        });
+
+        var $terms = terms.sort(),
             $return = [];
 
         function strInArray(str, strArray) {
@@ -62,7 +89,7 @@
                 }
 
                 setTimeout(function () {
-                    var $search = $('#search-bar').val();
+                    var $search = $('#search-bar').val().toUpperCase();
                     $return = [];
 
                     strInArray($search, $terms);
@@ -117,6 +144,94 @@
                 B: { pattern: /[0-9]/ },
             }
         });
+    },
+    SetInputsUpperCase: function () {
+
+        //Montadora
+        $('#search-bar').keyup(function () {
+            $(this).val($(this).val().toUpperCase());
+        });
+
+        //Modelo
+        $('#model').keyup(function () {
+            $(this).val($(this).val().toUpperCase());
+        });
+
+        //Placa
+        $('#plate').keyup(function () {
+            $(this).val($(this).val().toUpperCase());
+        });
+    },
+    ValidateInputs: function () {
+
+        //Valida montadora
+        if ($('#search-bar').val().length == 0) {
+            Swal.fire({
+                title: 'É necessário digitar a montadora',
+                icon: 'info',
+                confirmButtonText: 'Ok'
+            })
+
+            return true;
+        }
+        else if ($('#model').val().length == 0) {
+            Swal.fire({
+                title: 'É necessário digitar o modelo',
+                icon: 'info',
+                confirmButtonText: 'Ok'
+            })
+
+            return true;
+        }
+        else if ($('#plate').val().length == 0) {
+            Swal.fire({
+                title: 'É necessário digitar a placa',
+                icon: 'info',
+                confirmButtonText: 'Ok'
+            })
+
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    },
+    ExecuteAjax: function (formData, controller, action) {
+
+        $.ajax({
+            url: "https://localhost:44390/" + controller + "/" + action,
+            data: JSON.stringify(formData),
+            dataType: 'json',
+            contentType: "application/json",
+            type: "POST",
+            traditional: true,
+            async: true,
+        }).fail(function (data) {
+
+            debugger;
+            Swal.fire({
+                title: data,
+                icon: 'info',
+                confirmButtonText: 'Ok'
+            })
+
+        }).done(function (data) {
+
+            debugger;
+                        
+            Swal.fire({
+                title: data,
+                //text: 'Modal with a custom image.',
+                imageUrl: "/images/vehicle-driving.gif",
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: 'Custom image',
+            })
+
+            debugger;
+
+        })
     }
 };
 
