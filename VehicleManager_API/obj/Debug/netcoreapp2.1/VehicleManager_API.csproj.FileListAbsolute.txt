@@ -22,10 +22,13 @@ C:\Projetos\VehicleManager\VehicleManager_API\bin\Debug\netcoreapp2.1\VehicleMan
 C:\Projetos\VehicleManager\VehicleManager_API\bin\Debug\netcoreapp2.1\VehicleManager_API.runtimeconfig.dev.json
 C:\Projetos\VehicleManager\VehicleManager_API\bin\Debug\netcoreapp2.1\VehicleManager_API.dll
 C:\Projetos\VehicleManager\VehicleManager_API\bin\Debug\netcoreapp2.1\VehicleManager_API.pdb
+C:\Projetos\VehicleManager\VehicleManager_API\bin\Debug\netcoreapp2.1\VehicleManager_API.xml
 C:\Projetos\VehicleManager\VehicleManager_API\bin\Debug\netcoreapp2.1\VehicleManager_BLL.dll
 C:\Projetos\VehicleManager\VehicleManager_API\bin\Debug\netcoreapp2.1\VehicleManager_DAL.dll
 C:\Projetos\VehicleManager\VehicleManager_API\bin\Debug\netcoreapp2.1\VehicleManager_BLL.pdb
+C:\Projetos\VehicleManager\VehicleManager_API\bin\Debug\netcoreapp2.1\VehicleManager_BLL.xml
 C:\Projetos\VehicleManager\VehicleManager_API\bin\Debug\netcoreapp2.1\VehicleManager_DAL.pdb
+C:\Projetos\VehicleManager\VehicleManager_API\bin\Debug\netcoreapp2.1\VehicleManager_DAL.xml
 C:\Projetos\VehicleManager\VehicleManager_API\obj\Debug\netcoreapp2.1\VehicleManager_API.csprojAssemblyReference.cache
 C:\Projetos\VehicleManager\VehicleManager_API\obj\Debug\netcoreapp2.1\VehicleManager_API.csproj.CoreCompileInputs.cache
 C:\Projetos\VehicleManager\VehicleManager_API\obj\Debug\netcoreapp2.1\VehicleManager_API.RazorAssemblyInfo.cache

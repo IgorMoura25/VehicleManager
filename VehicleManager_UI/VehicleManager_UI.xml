@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VehicleManager_UI</name>
+    </assembly>
+    <members>
+        <member name="T:VehicleManager_UI.Controllers.EnrollmentController">
+            <summary>
+            Controller responsável pelas requisições de cadastro.
+            </summary>
+        </member>
+        <member name="M:VehicleManager_UI.Controllers.EnrollmentController.VehicleEnrollment">
+            <summary>
+            Tela de cadastro trazendo todas as montadoras.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VehicleManager_UI.Controllers.EnrollmentController.EnrollVehicle(VehicleManager_UI.Models.Vehicle)">
+            <summary>
+            Cadastro de veículo.
+            </summary>
+            <param name="vehicle">O veículo a ser cadastrado.</param>
+            <returns></returns>
+        </member>
+        <member name="T:VehicleManager_UI.Controllers.ManagerController">
+            <summary>
+            Controller responsável pelas requisições de gerenciamento.
+            </summary>
+        </member>
+        <member name="M:VehicleManager_UI.Controllers.ManagerController.ManageVehicles">
+            <summary>
+            Lista todos os veículos cadastrados.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VehicleManager_UI.Controllers.ManagerController.UpdateVehicle(VehicleManager_UI.Models.Vehicle)">
+            <summary>
+            Atualiza o veículo na base.
+            </summary>
+            <param name="vehicle">O veículo a ser atualizado.</param>
+            <returns></returns>
+        </member>
+        <member name="M:VehicleManager_UI.Controllers.ManagerController.DeleteVehicle(VehicleManager_UI.Models.Vehicle)">
+            <summary>
+            Deleta o veículo cadastrado.
+            </summary>
+            <param name="vehicle">O veículo a ser deletado.</param>
+            <returns></returns>
+        </member>
+        <member name="T:VehicleManager_UI.Extensions.UriExtensions">
+            <summary>
+            Classe responsável por extender métodos da classe <seealso cref="T:System.Uri"/>.
+            </summary>
+        </member>
+        <member name="M:VehicleManager_UI.Extensions.UriExtensions.Combine(System.Uri,System.String[])">
+            <summary>
+            Combina vários caminhos relativos em uma única <seealso cref="T:System.Uri"/>.
+            </summary>
+            <param name="uri">Uri a ser combinada.</param>
+            <param name="paths">Caminhos relativos a serem inseridos na Uri.</param>
+            <returns>A URI combinada.</returns>
+        </member>
+        <member name="T:VehicleManager_UI.Models.ApiClient">
+            <summary>
+            Classe responsável pelas requisições à camada API.
+            </summary>
+        </member>
+        <member name="F:VehicleManager_UI.Models.ApiClient._client">
+            <summary>
+            Única instância de HttpClient.
+            </summary>
+        </member>
+        <member name="F:VehicleManager_UI.Models.ApiClient._apiAbsoluteUri">
+            <summary>
+            URI absoluta da API.
+            </summary>
+        </member>
+        <member name="T:VehicleManager_UI.Models.ApiClient.VehiclesClient">
+            <summary>
+            Classe responsável pelas requisições ao controller Vehicles da API.
+            </summary>
+        </member>
+        <member name="T:VehicleManager_UI.Models.CustomConfiguration">
+            <summary>
+            Classe para configuração customizada da aplicação.
+            </summary>
+        </member>
+        <member name="P:VehicleManager_UI.Models.CustomConfiguration.ConnectionString">
+            <summary>
+            Configuração para a Connection String.
+            </summary>
+        </member>
+        <member name="T:VehicleManager_UI.Models.Vehicle">
+            <summary>
+            Model para Veículo.
+            </summary>
+        </member>
+        <member name="P:VehicleManager_UI.Models.Vehicle.Id">
+            <summary>
+            Identificação do veículo.
+            </summary>
+        </member>
+        <member name="P:VehicleManager_UI.Models.Vehicle.AssemblerName">
+            <summary>
+            Nome da montadora.
+            </summary>
+        </member>
+        <member name="P:VehicleManager_UI.Models.Vehicle.Model">
+            <summary>
+            Modelo do veículo.
+            </summary>
+        </member>
+        <member name="P:VehicleManager_UI.Models.Vehicle.Plate">
+            <summary>
+            Placa do veículo.
+            </summary>
+        </member>
+        <member name="T:VehicleManager_UI.Models.VehicleAssembler">
+            <summary>
+            Model para a Montadora do Veículo.
+            </summary>
+        </member>
+        <member name="P:VehicleManager_UI.Models.VehicleAssembler.Name">
+            <summary>
+            Nome da montadora.
+            </summary>
+        </member>
+    </members>
+</doc>

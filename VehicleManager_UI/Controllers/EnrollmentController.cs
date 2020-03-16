@@ -1,18 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Net;
-using System.Net.Mime;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using VehicleManager_UI.Models;
 
 namespace VehicleManager_UI.Controllers
 {
+    /// <summary>
+    /// Controller responsável pelas requisições de cadastro.
+    /// </summary>
     public class EnrollmentController : Controller
     {
+        /// <summary>
+        /// Tela de cadastro trazendo todas as montadoras.
+        /// </summary>
+        /// <returns></returns>
         public IActionResult VehicleEnrollment()
         {
             var assemblers = ApiClient.VehiclesClient.GetAllVehicleAssemblers().Result;
@@ -22,47 +24,35 @@ namespace VehicleManager_UI.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Cadastro de veículo.
+        /// </summary>
+        /// <param name="vehicle">O veículo a ser cadastrado.</param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult EnrollVehicle([FromBody]Vehicle vehicle)
         {
-            var vehicleInserted = ApiClient.VehiclesClient.PostVehicle(vehicle).Result;
-
-            if (vehicleInserted.Id > 0)
+            try
             {
-                Response.StatusCode = (int)HttpStatusCode.OK;
-                return Json("Veículo cadastrado com sucesso!");
+                var vehicleInserted = ApiClient.VehiclesClient.PostVehicle(vehicle).Result;
+
+                if (vehicleInserted.Id > 0)
+                {
+                    Response.StatusCode = (int)HttpStatusCode.OK;
+                    return Json("Veículo cadastrado com sucesso!");
+                }
+                else
+                {
+                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    return Json("Não foi possível cadastrar o veículo. Tente novamente mais tarde.");
+                }
             }
-            else
+            catch (Exception ex)
             {
                 Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                 return Json("Não foi possível cadastrar o veículo. Tente novamente mais tarde.");
             }
         }
-
-        //public IActionResult About()
-        //{
-        //    ViewData["Message"] = "Your application description page.";
-
-        //    return View();
-        //}
-
-        //public IActionResult Contact()
-        //{
-        //    ViewData["Message"] = "Your contact page.";
-
-        //    return View();
-        //}
-
-        //public IActionResult Privacy()
-        //{
-        //    return View();
-        //}
-
-        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        //public IActionResult Error()
-        //{
-        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        //}
 
     }
 }

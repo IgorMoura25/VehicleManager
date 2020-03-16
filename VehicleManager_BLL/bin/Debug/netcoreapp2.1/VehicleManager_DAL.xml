@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VehicleManager_DAL</name>
+    </assembly>
+    <members>
+        <member name="T:VehicleManager_DAL.DAL.VehicleManagerContext">
+            <summary>
+            Contexto do banco VehicleManager.
+            </summary>
+        </member>
+        <member name="P:VehicleManager_DAL.DAL.VehicleManagerContext.VehicleAssembler">
+            <summary>
+            Objeto Entity representando a tabela.
+            </summary>
+        </member>
+        <member name="P:VehicleManager_DAL.DAL.VehicleManagerContext.Vehicle">
+            <summary>
+            Objeto Entity representando a tabela.
+            </summary>
+        </member>
+        <member name="M:VehicleManager_DAL.DAL.VehicleManagerContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <summary>
+            Método sobreescrito para utilizar SQL Server e a respectiva Connection String.
+            </summary>
+            <param name="optionsBuilder"></param>
+        </member>
+        <member name="T:VehicleManager_DAL.Models.Vehicle">
+            <summary>
+            Model para Veículo.
+            </summary>
+        </member>
+        <member name="P:VehicleManager_DAL.Models.Vehicle.Id">
+            <summary>
+            Identificação do veículo.
+            </summary>
+        </member>
+        <member name="P:VehicleManager_DAL.Models.Vehicle.AssemblerName">
+            <summary>
+            Nome da montadora.
+            </summary>
+        </member>
+        <member name="P:VehicleManager_DAL.Models.Vehicle.Model">
+            <summary>
+            Modelo do veículo.
+            </summary>
+        </member>
+        <member name="P:VehicleManager_DAL.Models.Vehicle.Plate">
+            <summary>
+            Placa do veículo.
+            </summary>
+        </member>
+        <member name="T:VehicleManager_DAL.Models.VehicleAssembler">
+            <summary>
+            Model para a Montadora do Veículo.
+            </summary>
+        </member>
+        <member name="P:VehicleManager_DAL.Models.VehicleAssembler.Id">
+            <summary>
+            Identificação no banco da montadora.
+            </summary>
+        </member>
+        <member name="P:VehicleManager_DAL.Models.VehicleAssembler.Name">
+            <summary>
+            Nome da montadora.
+            </summary>
+        </member>
+    </members>
+</doc>

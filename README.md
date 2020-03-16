@@ -11,6 +11,10 @@ ORM: Entity Framework v2.1.4
 Banco: SQL Server / Os scripts rodados no banco encontram-se na pasta SQL-Server-Scripts
 Servidores Web: IIS Express (Frontend _UI e Backend _API usando "multiple startup projects" do Visual Studio 2017)
 
+Observações:
+VehicleManager_UI.Models.ApiClient._apiAbsoluteUri: Armazena o caminho root da API.
+VehicleManager_DAL.DAL.VehicleManagerContext.ConnectionString: Armazena a Connection String do banco.
+
 ########### ARQUITETURA #############
 
 Arquitetura do projeto em camadas, com suas respectivas dependências de projeto. Que seguem:
@@ -29,6 +33,8 @@ Pacotes utilizados:
 Bootstrap
 jQuery
 Input Mask: https://igorescobar.github.io/jQuery-Mask-Plugin/
+data-tables: https://datatables.net/
+sweet-alert: https://sweetalert2.github.io/
 
 --- DAL ---
 Entity Framework SQL Server Provider v2.1.4

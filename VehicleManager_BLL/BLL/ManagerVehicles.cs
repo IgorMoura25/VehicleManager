@@ -7,8 +7,15 @@ using VehicleManager_DAL.Models;
 
 namespace VehicleManager_BLL
 {
+    /// <summary>
+    /// Classe responsável pela regra de negócio de gerenciamento de veículos.
+    /// </summary>
     public class ManagerVehicles
     {
+        /// <summary>
+        /// Efetua a lógica e requisita a DAL recuperando todos os veículos.
+        /// </summary>
+        /// <returns></returns>
         public List<Vehicle> GetAllVehicles()
         {
             var vehicles = new List<Vehicle>();
@@ -21,6 +28,11 @@ namespace VehicleManager_BLL
             return vehicles;
         }
 
+        /// <summary>
+        /// Efetua a lógica e requisita a DAL atualizando o veículo.
+        /// </summary>
+        /// <param name="vehicle">Veículo a ser atualizado.</param>
+        /// <returns></returns>
         public Vehicle UpdateVehicle(Vehicle vehicle)
         {
             vehicle.Plate = vehicle.Plate.Replace("-", "");
@@ -34,6 +46,11 @@ namespace VehicleManager_BLL
             return vehicle;
         }
 
+        /// <summary>
+        /// Efetua a lógica e requisita a DAL deletando o veículo.
+        /// </summary>
+        /// <param name="vehicle">Veículo a ser deletado.</param>
+        /// <returns></returns>
         public bool DeleteVehicle(Vehicle vehicle)
         {
 

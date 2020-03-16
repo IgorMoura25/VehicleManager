@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VehicleManager_BLL</name>
+    </assembly>
+    <members>
+        <member name="T:VehicleManager_BLL.ManagerVehicles">
+            <summary>
+            Classe responsável pela regra de negócio de gerenciamento de veículos.
+            </summary>
+        </member>
+        <member name="M:VehicleManager_BLL.ManagerVehicles.GetAllVehicles">
+            <summary>
+            Efetua a lógica e requisita a DAL recuperando todos os veículos.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VehicleManager_BLL.ManagerVehicles.UpdateVehicle(VehicleManager_DAL.Models.Vehicle)">
+            <summary>
+            Efetua a lógica e requisita a DAL atualizando o veículo.
+            </summary>
+            <param name="vehicle">Veículo a ser atualizado.</param>
+            <returns></returns>
+        </member>
+        <member name="M:VehicleManager_BLL.ManagerVehicles.DeleteVehicle(VehicleManager_DAL.Models.Vehicle)">
+            <summary>
+            Efetua a lógica e requisita a DAL deletando o veículo.
+            </summary>
+            <param name="vehicle">Veículo a ser deletado.</param>
+            <returns></returns>
+        </member>
+        <member name="T:VehicleManager_BLL.VehicleEnrollment">
+            <summary>
+            Classe responsável pela regra de negócio de cadastro de veículos.
+            </summary>
+        </member>
+        <member name="M:VehicleManager_BLL.VehicleEnrollment.GetAllAssemblers">
+            <summary>
+            Efetua a lógica e requisita a DAL recuperando todas as montadoras.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VehicleManager_BLL.VehicleEnrollment.InsertVehicle(VehicleManager_DAL.Models.Vehicle)">
+            <summary>
+            Efetua a lógica e requisita a DAL inserindo o veículo.
+            </summary>
+            <param name="vehicle">O veículo a ser inserido.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

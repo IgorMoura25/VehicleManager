@@ -9,14 +9,43 @@ using extension = VehicleManager_UI.Extensions;
 
 namespace VehicleManager_UI.Models
 {
+    /// <summary>
+    /// Classe responsável pelas requisições à camada API.
+    /// </summary>
     internal static class ApiClient
     {
+
+        #region Propriedades
+
+        /// <summary>
+        /// Única instância de HttpClient.
+        /// </summary>
         private static readonly HttpClient _client = new HttpClient();
+
+        /// <summary>
+        /// URI absoluta da API.
+        /// </summary>
         private static readonly Uri _apiAbsoluteUri = new Uri("https://localhost:44334/");
 
+        #endregion
+
+
+        #region Controllers API - Vehicles
+
+        /// <summary>
+        /// Classe responsável pelas requisições ao controller Vehicles da API.
+        /// </summary>
         internal static class VehiclesClient
         {
+
+            #region ...Caminho relativo...
+
             private static readonly string _apiRelativeUri = "api/vehicles";
+
+            #endregion
+
+
+            #region ...CRUD Montadora...
 
             internal static async Task<List<VehicleAssembler>> GetAllVehicleAssemblers()
             {
@@ -31,6 +60,11 @@ namespace VehicleManager_UI.Models
                 return assemblerList;
             }
 
+            #endregion
+
+            #region ...CRUD Veículo...
+
+            //GET
             internal static async Task<List<Vehicle>> GetAllVehicles()
             {
                 var uri = extension.UriExtensions.Combine(_apiAbsoluteUri, _apiRelativeUri, "all/vehicles");
@@ -44,6 +78,7 @@ namespace VehicleManager_UI.Models
                 return vehicleList;
             }
 
+            //POST
             internal static async Task<Vehicle> PostVehicle(Vehicle vehicle)
             {
                 var uri = extension.UriExtensions.Combine(_apiAbsoluteUri, _apiRelativeUri, "insert/vehicle");
@@ -58,6 +93,7 @@ namespace VehicleManager_UI.Models
                 return vehicleInserted;
             }
 
+            //PUT
             internal static async Task<Vehicle> PutVehicle(Vehicle vehicle)
             {
                 var uri = extension.UriExtensions.Combine(_apiAbsoluteUri, _apiRelativeUri, "update/vehicle");
@@ -72,6 +108,7 @@ namespace VehicleManager_UI.Models
                 return vehicleUpdated;
             }
 
+            //DELETE
             internal static async Task<bool> DeleteVehicle(Vehicle vehicle)
             {
                 var uri = extension.UriExtensions.Combine(_apiAbsoluteUri, _apiRelativeUri, "delete/vehicle");
@@ -86,6 +123,11 @@ namespace VehicleManager_UI.Models
                 return vehicleUpdated;
             }
 
+            #endregion
+
         }
+
+        #endregion
+
     }
 }

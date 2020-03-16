@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VehicleManager_API</name>
+    </assembly>
+    <members>
+        <member name="T:VehicleManager_API.Controllers.VehiclesController">
+            <summary>
+            Controller responsável pelas requisições de Veículos.
+            </summary>
+        </member>
+        <member name="M:VehicleManager_API.Controllers.VehiclesController.GetAll">
+            <summary>
+            GET: Recupera todos os veículos do banco.
+            </summary>
+            <returns>Uma lista de veículos.</returns>
+        </member>
+        <member name="M:VehicleManager_API.Controllers.VehiclesController.InsertVehicle(VehicleManager_DAL.Models.Vehicle)">
+            <summary>
+            POST: Insere um veículo no banco.
+            </summary>
+            <param name="vehicle">O veículo a ser inserido.</param>
+            <returns>O veículo inserido.</returns>
+        </member>
+        <member name="M:VehicleManager_API.Controllers.VehiclesController.Put(VehicleManager_DAL.Models.Vehicle)">
+            <summary>
+            POST: Atualiza um veículo no banco.
+            </summary>
+            <param name="vehicle">O veículo a ser atualizado.</param>
+            <returns>O veículo atualizado.</returns>
+        </member>
+        <member name="M:VehicleManager_API.Controllers.VehiclesController.Delete(VehicleManager_DAL.Models.Vehicle)">
+            <summary>
+            POST: Deleta um veículo no banco.
+            </summary>
+            <param name="vehicle">O veículo a ser deletado.</param>
+            <returns>Se foi deletado com sucesso.</returns>
+        </member>
+        <member name="M:VehicleManager_API.Controllers.VehiclesController.GetAllVehicleAssemblers">
+            <summary>
+            GET: Recupera todas as montadoras de veículos do banco.
+            </summary>
+            <returns>Uma lista de montadoras de veículos.</returns>
+        </member>
+    </members>
+</doc>
